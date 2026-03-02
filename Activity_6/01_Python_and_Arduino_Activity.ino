@@ -1,19 +1,19 @@
+#include <Arduino.h>
 const int ledPin = 13;
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
-  Serial.begin(9600);
+    pinMode(ledPin, OUTPUT);
+    Serial.begin(9600);
 }
 
 void loop() {
-  if (Serial.available() > 0); {
-    char command = Serial.read();
+    if (Serial.available() > 0) {
+        char command = Serial.read();
 
-    if (command == '1'){
-      digitalWrite(ledPin, HIGH);
+        if (command == '1') {
+            digitalWrite(ledPin, HIGH);
+        } else if (command == '0') {
+            digitalWrite(ledPin, LOW);
+        }
     }
-    else if (command == '0') {
-      digitalWrite(ledPin, LOW);
-    } 
-  }
 }
